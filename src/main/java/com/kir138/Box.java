@@ -20,23 +20,32 @@ import java.util.List;
 
 public class Box<T extends Fruit> {
 
-    private List<T> list = new ArrayList<>();
+    private List<T> fruitStorage = new ArrayList<>();
 
     public void addFruit(T fruit) {
-        list.add(fruit);
+        fruitStorage.add(fruit);
     }
 
     public float getWeight() {
-        return list.size() * list.get(0).getWeight();
+        return fruitStorage.size() * fruitStorage.get(0).getWeight();
     }
 
     public boolean compare(Box <? extends Fruit> other) {
         return this.getWeight() == other.getWeight();
     }
 
-    public void transferFruits() {
-
+    public void transferFruits(Box<T> other) {
+        if (this == other) {
+            return;
+        }
+        other.fruitStorage.addAll(this.fruitStorage);
+        this.fruitStorage.clear();
     }
 
-
+    @Override
+    public String toString() {
+        return "Box{" +
+                "fruitStorage=" + fruitStorage +
+                '}';
+    }
 }
