@@ -2,14 +2,14 @@ package com.kir138;
 
 public class Apple extends Fruit {
 
-    public Apple(float weight) {
+    public Apple() {
         super(1.0f);
     }
 
     @Override
     public String toString() {
         return "Apple{" +
-                "weight=" + weight +
-                '}';
+            "weight=" + weight +
+            '}';
     }
 }
